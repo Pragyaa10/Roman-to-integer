@@ -1,0 +1,22 @@
+int romanToInt(char * s){
+int k=strlen(s); int r=0,n=0,p=n;
+int arr[7]={1,5,10,50,100,500,1000};
+char ar[7]={'I','V','X','L','C','D','M'};
+while(k>0)
+{int i;
+char a=s[k-1];
+for(i=0;i<7;i++)
+{
+    if(ar[i]==a)
+    {
+        n=i;break;
+    }
+}
+if(arr[n]<arr[p])
+r=r-arr[n];
+else if(arr[p]<=arr[n])
+r=r+arr[n];
+k=k-1;p=n;
+}
+return r;
+}
